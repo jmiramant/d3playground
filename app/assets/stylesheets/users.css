@@ -1,0 +1,62 @@
+body {
+	margin: 0
+}
+
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+#graph {
+	position: fixed;
+	top: 82px;
+	left: 304px;
+	width: 534px;
+	height: 430px;
+	background-color: #ffffff;
+	border-radius: 1px;
+}
+
+#banner {
+	background-color: #EBEFF3;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.buttons {
+	padding-top: 5px;
+	height: 30px;
+	text-align: center;
+}
+
+.buttons div {
+	display: inline-block;
+	font-size: 10px;
+	text-align: center;
+	background-color: #838994;
+	color: white;
+	width: 80px;
+	border-radius: 1px;
+	height: 19px;
+	font-weight: 200;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
+.buttons div:hover {
+	background-color: #b6b6b6;
+}
+
+.buttons div:active {
+	background-color: #363636;
+}
+
+.background img {
+	width: 960px;
+	position: fixed;
+	z-index: -1
+}
