@@ -19,12 +19,12 @@ $(document).ready(function() {
 	};
 
 	var force = d3.layout.force()
-		.gravity(0.05)
+		.gravity(0.08)
 		.friction(0.45)
 		.linkDistance(function(d) {
 			return 500 - (d.target.size * 21);
 		})
-		.charge(-10)
+		.charge(-300)
 		.size([width, height]);
 
 	$('.buttons div').on('click', function() {
