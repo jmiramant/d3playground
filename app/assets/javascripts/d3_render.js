@@ -1,30 +1,31 @@
 $(document).ready(function() {
 
-		var width = 743,
-			height = 560;
+	var width = 743,
+		height = 530;
 
-		var color = d3.scale.category10();
+	var color = d3.scale.category10();
 
-		var w = 25,
-			h = 25;
+	var w = 25,
+		h = 25;
 
-		var svg = d3.select("#graph").append("svg")
-			.attr("width", width)
-			.attr("height", height);
+	var svg = d3.select("#graph").append("svg")
+		.attr("width", width)
+		.attr("height", height);
 
-		var path = {
-			fitscore: "fitscore_match",
-			company: "company_match",
-			follower: "following_match"
-		};
+	var path = {
+		fitscore: "fitscore_match",
+		company: "company_match",
+		follower: "following_match"
+	};
 
-		var force = d3.layout.force()
-			.gravity(.03)
-			.linkDistance(function(d) {
-				return 500 - (d.target.size * 20)
-			})
-			.charge(-10)
-			.size([width, height]);
+	var force = d3.layout.force()
+		.gravity(0.05)
+		.friction(0.45)
+		.linkDistance(function(d) {
+			return 500 - (d.target.size * 21);
+		})
+		.charge(-10)
+		.size([width, height]);
 
 	$('.buttons div').on('click', function() {
 		d3.json("/users/" + path[this.id], function(error, graph) {
@@ -43,6 +44,12 @@ $(document).ready(function() {
 			var node = svg.selectAll(".node")
 				.data(graph.nodes)
 				.enter().append("circle")
+				.attr("cx", function(d) {
+					return d.x;
+				})
+				.attr("cy", function(d) {
+					return d.y;
+				})
 				.attr("class", "node")
 				.attr("r", function(i) {
 					return i.size;
@@ -57,7 +64,30 @@ $(document).ready(function() {
 				.attr("dy", ".35em")
 				.text(function(d) {
 					return d.name;
+				})
+				.attr("score", function(d) {
+					return d.fitscore;
 				});
+
+			node.append("svg:path")
+				.attr("transform", function(d) {
+					return "translate(" + d.x + "," + d.y + ")";
+				});
+
+			function tick(e) {
+				var k = 6 * e.alpha;
+				graph.nodes.forEach(function(o, i) {
+					o.y += i & 1 ? k : -k;
+					o.x += i & 2 ? k : -k;
+				});
+
+				d3.layout.force().attr("cx", function(d) {
+					return d.x;
+				})
+					.attr("cy", function(d) {
+						return d.y;
+					});
+			}
 
 			force.on("tick", function() {
 				link.attr("x1", function(d) {
@@ -80,7 +110,6 @@ $(document).ready(function() {
 						return d.y;
 					});
 			});
-
 		});
 	});
 });

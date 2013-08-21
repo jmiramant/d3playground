@@ -43,7 +43,7 @@ body {
 }
 
 .buttons {
-	padding-top: 5px;
+	padding-top: 2px;
 	height: 30px;
 	position: absolute;
 	top: 135px;
@@ -60,8 +60,8 @@ body {
 	width: 80px;
 	border-radius: 3px;
 	height: 23px;
-	font-weight: 200;
-	padding-top: 5px;
+	font-weight: 400;
+	padding-top: 6px;
 	cursor: pointer;
 }
 
@@ -75,8 +75,8 @@ body {
 }
 
 .active {
-	background-color: #F0F3F7
-	color: #6F707E
+	background-color: #F0F3F7 !important;
+	color: #6F707E !important;
 }
 
 .node {
@@ -89,13 +89,25 @@ body {
   stroke-opacity: .6;
 }
 
+circle:hover {
+	opacity: 0.8;
+}
+
 #drilldown {
 	display: none; 
 	position: fixed;
-	height: 100px;
+	height: 200px;
 	background-color: #fff;
 	box-shadow: 0px 0px 1px #afafaf;
-	width: 100px;
+	width: 175px;
+}
+
+#profile {
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	z-index: 1;
+	position: absolute;
 }
 
 
@@ -103,8 +115,10 @@ body {
 	width: 20px;
 	height: 20px;
 	background-color: #fff;
+	box-shadow: 0px 0px 1px #afafaf;
 	border-radius: 2px;
+	float: left;
 	-webkit-transform: rotate(45deg);
-	margin: 7px 0 0 -8px;
+	margin: 33px 0 0 -8px;
 	z-index: -100;
 }
