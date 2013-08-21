@@ -1,15 +1,15 @@
 $(document).ready(function() {
 	$('#graph').on('click', 'circle', function() {
 		$('.remove').hide();
-		var x_coord = event.pageX;
-		var y_coord = event.pageY;
+		var x_coord = event.pageX+20;
+		var y_coord = event.pageY-40;
 		$('body').append($('#drilldown')
-														.clone()
-														.show()
-														.addClass('remove')
-														.css("top", y_coord)
-														.css("left", x_coord)
-														);
+			.clone()
+			.fadeIn()
+			.addClass('remove')
+			.css("top", y_coord)
+			.css("left", x_coord)
+		);
 	});
 
 });

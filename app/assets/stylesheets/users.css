@@ -90,10 +90,21 @@ body {
 }
 
 #drilldown {
-	display: none;
+	display: none; 
 	position: fixed;
 	height: 100px;
 	background-color: #fff;
-	width: 100px;
 	box-shadow: 0px 0px 1px #afafaf;
+	width: 100px;
+}
+
+
+#arrow {
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	border-radius: 2px;
+	-webkit-transform: rotate(45deg);
+	margin: 7px 0 0 -8px;
+	z-index: -100;
 }
