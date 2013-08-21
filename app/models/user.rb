@@ -1,18 +1,17 @@
 class User < ActiveRecord::Base
-	attr_accessible :first_name, :last_name, :profile_score, :company_id, :location
+	attr_accessible :first_name, :last_name, :architect_score, :company_id, :location
 
 	belongs_to :company
-	has_many :follows
 
 	def top_fitscore_matches
-		score = self.profile_score
-		matches = User.where(profile_score:(score-10)..(score+10)).limit(15)
+		score = self.architect_score
+		matches = User.where(architect_score:(score-10)..(score+10)).limit(15)
 		render_api matches, score
 	end
 
 	def top_company_matches
-		score = self.profile_score
-		company_matches = Company.where(profile_score: (user_score-10)..(user_score+10)).limit(15)
+		score = self.architect_score
+		company_matches = Company.where(architect_score: (user_score-10)..(user_score+10)).limit(15)
 		render_api company_matches, score
 	end
 
@@ -23,10 +22,10 @@ class User < ActiveRecord::Base
 			match.last_name ? name = match.first_name + " " + match.last_name : name = match.name 
 			nodes << {
 				name: name,
-				fitscore: match.profile_score,
-				group: 2, 
-				size: (20 - (score - match.profile_score).abs), 
-				length: 100,
+				fitscore: match.architect_score,
+				group: 2,
+				fixed: false,
+				size: (20 - (score - match.architect_score).abs), 
 				color: '#6BBB96'}
 			links << {
 				source: 0, 
@@ -44,6 +43,7 @@ class User < ActiveRecord::Base
 		{ name: current_user.first_name + " " + current_user.last_name, 
 				group: 2, 
 				size: 25,
+				fixed: true,
 				x: 400,
 				y: 200,
 				length: 100, 

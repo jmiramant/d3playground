@@ -11,32 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130820172131) do
+ActiveRecord::Schema.define(:version => 20130819122958) do
 
   create_table "companies", :force => true do |t|
     t.string   "name"
     t.integer  "size"
     t.string   "industry"
-    t.integer  "profile_score"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "follows", :force => true do |t|
-    t.integer "user_id_one"
-    t.integer "user_id_two"
+    t.integer  "architect_score"
+    t.integer  "location"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "profile_score"
+    t.integer  "architect_score"
     t.integer  "company_id"
     t.integer  "location"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.float    "latitude"
-    t.float    "longitude"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

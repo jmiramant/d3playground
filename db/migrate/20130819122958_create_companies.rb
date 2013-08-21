@@ -4,7 +4,8 @@ class CreateCompanies < ActiveRecord::Migration
     	t.string :name
     	t.integer :size
     	t.string :industry
-    	t.integer :profile_score
+    	t.integer :architect_score
+    	t.integer :location
 
    	 	t.timestamps
    	end

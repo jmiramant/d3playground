@@ -40,7 +40,6 @@ $(document).ready(function() {
 				.attr("class", "link")
 				.style("stroke-width", 1);
 
-
 			var node = svg.selectAll(".node")
 				.data(graph.nodes)
 				.enter().append("circle")

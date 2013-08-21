@@ -6,21 +6,18 @@ $(document).ready(function() {
 		var y_coord = event.pageY - 40;
 		$('body').append(
 			$('#drilldown')
-				.clone()
-				.fadeIn()
-				.addClass('remove')
-				.css("top", y_coord)
-				.css("left", x_coord)
+			.clone()
+			.fadeIn()
+			.addClass('remove')
+			.css("top", y_coord)
+			.css("left", x_coord)
 		);
 	});
 
 	$('#fitscore').trigger('click');
 
 	$('.buttons div').on('click', function() {
-			$('.buttons div').removeClass('active');
-			$(this).addClass('active');
+		$('.buttons div').removeClass('active');
+		$(this).addClass('active');
 	});
-	// d3.selectAll("circle").data('text').enter()
-	// 	.on("mouseover", function() { d3.select(d3.event.target).classed("highlight", true); })
-	// 	.on("mouseout", function() { d3.select(d3.event.target).classed("highlight", false); });
 });
