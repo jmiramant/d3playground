@@ -2,6 +2,83 @@ body {
 	margin: 0
 }
 
+.background {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.background img {
+	width: 1440px;
+	position: fixed;
+	z-index: -1
+}
+
+#graph {
+	position: fixed;
+	top: 180px;
+	left: 483px;
+	width: 743px;
+	height: 560px;
+	background-color: #F7FBFD;
+	border-radius: 1px;
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+}
+
+#banner {
+	background-color: #EBEFF3;
+	height: 50px;
+	text-align: center;
+	color: #717182;
+	line-height: 15px;
+}
+
+#banner h3 {
+	margin: 0;
+	font-size: 12px;
+	padding-top: 10px;
+}
+
+#banner p {
+	margin: 0;
+	font-size: 10px;
+}
+
+.buttons {
+	padding-top: 5px;
+	height: 30px;
+	position: absolute;
+	top: 135px;
+	left: 483px;
+}
+
+.buttons div {
+	display: inline-block;
+	font-size: 13px;
+	text-align: center;
+	background-color: #fff;
+	color: #B9B9C1;
+	border: 1px solid #B8B9C1;
+	width: 80px;
+	border-radius: 3px;
+	height: 23px;
+	font-weight: 200;
+	padding-top: 5px;
+	cursor: pointer;
+}
+
+.buttons div:hover {
+	background-color: #b6b6b6;
+	color: #fff
+}
+
+.buttons div:active {
+	background-color: #363636;
+}
+
+.active {
+	background-color: #F0F3F7
+	color: #6F707E
+}
+
 .node {
   stroke: #fff;
   stroke-width: 1.5px;
@@ -12,51 +89,11 @@ body {
   stroke-opacity: .6;
 }
 
-#graph {
+#drilldown {
+	display: none;
 	position: fixed;
-	top: 82px;
-	left: 304px;
-	width: 534px;
-	height: 430px;
-	background-color: #ffffff;
-	border-radius: 1px;
-}
-
-#banner {
-	background-color: #EBEFF3;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-}
-
-.buttons {
-	padding-top: 5px;
-	height: 30px;
-	text-align: center;
-}
-
-.buttons div {
-	display: inline-block;
-	font-size: 10px;
-	text-align: center;
-	background-color: #838994;
-	color: white;
-	width: 80px;
-	border-radius: 1px;
-	height: 19px;
-	font-weight: 200;
-	padding-top: 5px;
-	cursor: pointer;
-}
-
-.buttons div:hover {
-	background-color: #b6b6b6;
-}
-
-.buttons div:active {
-	background-color: #363636;
-}
-
-.background img {
-	width: 960px;
-	position: fixed;
-	z-index: -1
+	height: 100px;
+	background-color: #fff;
+	width: 100px;
+	box-shadow: 0px 0px 1px #afafaf;
 }
