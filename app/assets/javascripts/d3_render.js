@@ -1,3 +1,8 @@
+function clearScreen(){
+	$('#graph svg').empty();
+	$('.remove').remove();
+}
+
 $(document).ready(function() {
 
 	var width = 743,
@@ -22,12 +27,18 @@ $(document).ready(function() {
 		.gravity(0.08)
 		.friction(0.45)
 		.linkDistance(function(d) {
-			return 500 - (d.target.size * 21);
+			var dist = 500 - d.target.size * 22;
+			if (dist > 200) {
+				return dist - 40;
+			} else {
+				return dist;
+			}
 		})
 		.charge(-300)
 		.size([width, height]);
 
 	$('.buttons div').on('click', function() {
+		clearScreen();
 		d3.json("/users/" + path[this.id], function(error, graph) {
 			force
 				.nodes(graph.nodes)
@@ -63,9 +74,6 @@ $(document).ready(function() {
 				.attr("dy", ".35em")
 				.text(function(d) {
 					return d.name;
-				})
-				.attr("score", function(d) {
-					return d.fitscore;
 				});
 
 			node.append("svg:path")

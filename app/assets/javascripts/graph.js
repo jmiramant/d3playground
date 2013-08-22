@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	$('#graph').on('click', 'circle', function() {
-		$('.remove').hide();
+		var name = $($(this)[0]).children().text();
+		$('.remove').remove();
 		var name = ($($(this)[0]).text());
 		var x_coord = event.pageX + 20;
 		var y_coord = event.pageY - 40;
@@ -12,6 +13,7 @@ $(document).ready(function() {
 			.css("top", y_coord)
 			.css("left", x_coord)
 		);
+		$('#name').html(name);
 	});
 
 	$('#fitscore').trigger('click');
