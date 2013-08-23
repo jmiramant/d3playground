@@ -67,7 +67,7 @@ $(document).ready(function() {
 				.style("fill", function(i) {
 					return i.color;
 				})
-				.call(force.tick);
+				.call(force.drag);
 
 			node.append("text")
 				.attr("dx", 12)
