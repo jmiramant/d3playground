@@ -40,10 +40,12 @@ $(document).ready(function() {
 	$('.buttons div').on('click', function() {
 		clearScreen();
 		d3.json("/users/" + path[this.id], function(error, graph) {
+			console.log(graph);
 			force
 				.nodes(graph.nodes)
 				.links(graph.links)
 				.start();
+
 
 			var link = svg.selectAll(".link")
 				.data(graph.links)
