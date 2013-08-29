@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	def fitscore_match
 		data = CURRENT_USER.top_fitscore_matches
 		@api = {nodes: data[0], links: data[1]}
+		p @api
 		render json: @api.to_json
 	end
 

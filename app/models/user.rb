@@ -38,12 +38,11 @@ class User < ActiveRecord::Base
 	end
 
 	def unique_current_user node
-		node[:group] = 2 
+		node[:group] = 1
 		node[:size] = 25
 		node[:fixed] = true
 		node[:x] = 370
 		node[:y] = 250
-		node[:length] = 100 
 		node[:color] = '#F67965'
 	end
 
